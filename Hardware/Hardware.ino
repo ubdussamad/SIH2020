@@ -2,13 +2,11 @@
 // A Project for SIH202
 // By Team: Runtime Terror
 
-
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 
 #define DEVICE_ID "A7-01"
 #define SENSOR_TYPE 1
-#define CURRENT_LEVEL 3
 #define MIN_LEVEL 0
 #define MAX_LEVEL 5
 #define CONFIDENCE 1
@@ -17,7 +15,9 @@
 #define UA "LifeSense-V0.1"
 
 #define PIN_COUNT 6
-int PINS[6] = { 0,2,4,5,14,16 };
+int PINS[PIN_COUNT] = { 0,2,4,5,14,16 };
+
+int SENSOR_DATA[PIN_COUNT] = { 0,0,0,0,0,0 };
 
 #ifndef STASSID
 #define STASSID "Galaxy A50"
@@ -26,8 +26,8 @@ int PINS[6] = { 0,2,4,5,14,16 };
 
 void setup() {
 
-  for ( int index = 0 ; index < PIN_COUNT , index++) {
-  pinMode( PINS[index] , OUTPUT);
+  for ( int index = 0 ; index < PIN_COUNT ; index++) {
+  pinMode( PINS[index] , INPUT );
   }
   
   USE_SERIAL.begin(115200);
@@ -52,9 +52,16 @@ void setup() {
 void loop() {
   // wait for WiFi connection
 
-  for ( int index = 0 ; index < PIN_COUNT , index++) {
-  DIGITAL( PINS[index] , OUTPUT);
+  //long CURRENT_LEVEL = random(6);
+  int index = 0;
+  for (; index < PIN_COUNT; index++) {
+    SENSOR_DATA[index] = digitalRead( PINS[index] );
+    if ( SENSOR_DATA[index] == 0 ) {
+      break;
+    }
   }
+
+  int CURRENT_LEVEL = index;
   
   if ((WiFi.status() == WL_CONNECTED)) {
 
@@ -98,5 +105,5 @@ void loop() {
     http.end();
   }
 
-  delay(10000);
+  delay(3000);
 }
