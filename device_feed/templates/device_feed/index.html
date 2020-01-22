@@ -24,7 +24,8 @@
     <header>
         <div class="header-top">
             <div class="container">
-                <br><img src="{% static 'device_feed/images/logo.png' %}" alt="image"><br><br>
+                <br><span class="center"><img src="{% static 'device_feed/images/logo.png' %}" alt="image"></span>
+                <br><br>
 
                 {% if currentLevel == '2' %}
                 <div class="alert alert-warning" role="alert">
@@ -63,12 +64,10 @@
                 <div class="col-md-12 col-sm-12">
                     <div class="text-contant">
                         <h2>
-                            <span class="center"><span class="icon"><img
-                                        src="{% static 'device_feed/images/icon-logo.png'%}" alt="#" /></span></span>
-                            <a href="" class="typewrite" data-period="2000"
-                                data-type='[ "Welcome to LifeSense", "We Care Your Health", "We are Expert!" ]'>
-                                <span class="wrap"></span>
-                            </a>
+                            <span class="center"><span class="icon">
+                                    <img src="{% static 'device_feed/images/icon-logo.png'%}" alt="#" /></span></span>
+
+                            <h1 style="font-size: xxx-large;"><strong>Welcome to LifeSense</strong></h1>
                         </h2>
                     </div>
                 </div>
