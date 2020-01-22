@@ -11,12 +11,6 @@ def home(request):
     for i in range(0, len(jsonData)):
         if (i == len(jsonData)-1):
             context = jsonData[i]
-    
-    # if (context['currentLevel'] == '2'):
-    #     level2 = True
-    # if (context['currentLevel'] == '1'):
-    #     level1 = True
-        
     return render(request, "device_feed/index.html", context)
 
 def login(request):
@@ -30,3 +24,7 @@ def auth(request):
         if (password_default == "admin"):
             print("success")
             return HttpResponseRedirect('http://127.0.0.1:8000/')
+        else:
+            return ("Invalid Password")
+    else:
+        return ("Invalid Username")

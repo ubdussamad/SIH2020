@@ -1,32 +1,22 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="refresh" content="5">
+    <meta http-equiv="refresh" content="2">
 
     <title>LifeSense</title>
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'device_feed/css/bootstrap.min.css' %}">
-    <!-- Site CSS -->
     <link rel="stylesheet" href="{% static 'device_feed/style.css' %}">
-    <!-- Colors CSS -->
     <link rel="stylesheet" href="{% static 'device_feed/css/colors.css' %}">
-    <!-- ALL VERSION CSS -->
     <link rel="stylesheet" href="{% static 'device_feed/css/versions.css' %}">
-    <!-- Responsive CSS -->
     <link rel="stylesheet" href="{% static 'device_feed/css/responsive.css' %}">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'device_feed/css/custom.css' %}">
-    <!-- Modernizer for Portfolio -->
     <script src="{% static 'device_feed/js/modernizer.js' %}"></script>
-    <!-- [if lt IE 9] -->
 </head>
 
 <body class="clinic_version">
@@ -83,11 +73,8 @@
                     </div>
                 </div>
             </div>
-            <!-- end row -->
         </div>
-        <!-- end container -->
     </div>
-    <!-- end section -->
 
 
     <div id="time-table" class="time-table-section">
@@ -99,7 +86,8 @@
                         <h3>Patient Details</h3>
                         <div class="time-table-section">
                             <ul>
-                                <li><span class="left">Patient Name</span><span class="right">John Doe</span id="memberNumber">
+                                <li><span class="left">Patient Name</span><span class="right">John Doe</span
+                                        id="memberNumber">
                                 </li>
                                 <li><span class="left">Room Number</span><span class="right">108</span>
                                 </li>
@@ -117,7 +105,8 @@
 
                         <h3>Device ID : {{ deviceID }}</h3>
 
-                        <p style="font-size: larger;"><strong>Current Fluid Level <br><span style="font-size: xxx-large;">{{ currentLevel }}</span></strong></p>
+                        <p style="font-size: larger;"><strong>Current Fluid Level <br>
+                                <span style="font-size: xxx-large;">{{ currentLevel }}</span></strong></p>
                     </div>
                 </div>
             </div>
@@ -127,8 +116,10 @@
                         <span class="info-icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
                         <h3>Other Details</h3>
                         <div class="time-table-section">
-                            <span style="font-size: larger;" class="left"><strong>Max Level - {{ maxLevel }}<strong></span>
-                            <span style="font-size: larger;" class="right"><strong>Min Level - {{ minLevel }}</strong></span>
+                            <span style="font-size: larger;" class="left"><strong>Max Level -
+                                    {{ maxLevel }}<strong></span>
+                            <span style="font-size: larger;" class="right"><strong>Min Level -
+                                    {{ minLevel }}</strong></span>
                         </div>
                     </div>
                 </div>
@@ -159,14 +150,9 @@
             </div>
         </div>
     </div>
-    <!-- end copyrights -->
-    <a href="{% static 'device_feed/#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
-  <!-- all js files -->
-  <script src="{% static 'device_feed/js/all.js' %}">
-</script>
-        <!-- all plugins -->
-        <script src="{% static 'device_feed/js/custom.js' %}"></script>
+    <script src="{% static 'device_feed/js/all.js' %}"></script>
+    <script src="{% static 'device_feed/js/custom.js' %}"></script>
 
 </body>
 
