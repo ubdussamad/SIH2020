@@ -1,0 +1,78 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block display %}
+
+
+
+<div id="home" class="parallax first-section" data-stellar-background-ratio="0.4"
+    style="background-image:url('http://127.0.0.1:8000/static/device_feed/images/slider-bg.png');">
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="text-contant">
+                    <h2>
+                        <span class="center"><span class="icon"><img
+                                    src="{% static 'device_feed/images/icon-logo.png'%}" alt="#" /></span></span>
+                        <a href="" class="typewrite" data-period="2000"
+                            data-type='[ "Welcome to LifeSense", "We Care Your Health", "We are Expert!" ]'>
+                            <span class="wrap"></span>
+                        </a>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end section -->
+
+<div id="time-table" class="time-table-section">
+    <div class="container">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="service-time one" style="background:#2895f1;">
+                    <span class="info-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <h3>Patient Details</h3>
+                    <p>Dignissimos ducimus qui blanditii sentium volta tum deleniti atque cori as quos dolores et quas
+                        mole.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="service-time middle" style="background:#0071d1;">
+                    <span class="info-icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
+
+                    <h3>Device: {{ deviceID }}</h3>
+                    <div class="time-table-section">
+                        <ul>
+                            <li><span class="left">Current Level</span><span class="right">{{ currentLevel }}</span id="memberNumber">
+                            </li>
+                            <li><span class="left">Max Level</span><span class="right">{{ maxLevel }}</span>
+                            </li>
+                            <li><span class="left">Min Level</span><span class="right">{{ minLevel }}</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="service-time three" style="background:#0060b1;">
+                    <span class="info-icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
+                    <h3>Other Details</h3>
+                    <p>Dignissimos ducimus qui blanditii sentium volta tum deleniti atque cori as quos dolores et quas
+                        mole.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
