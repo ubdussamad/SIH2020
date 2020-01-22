@@ -81,7 +81,7 @@ void loop() {
 
     char buff[10000];
     sprintf(buff,
-    "Device-Id:%s,Sensor-Type:%d,Current-Level:%d,Min-Level:%d,Max-Level:%d,Confidence:%d"
+    "DeviceID:%s,SensorType:%d,CurrentLevel:%d,MinLevel:%d,MaxLevel:%d,Confidence:%d"
       , DEVICE_ID , SENSOR_TYPE , CURRENT_LEVEL , MIN_LEVEL , MAX_LEVEL , CONFIDENCE  );
     
     int httpCode = http.POST(buff);
