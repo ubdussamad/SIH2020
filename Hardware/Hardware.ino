@@ -27,16 +27,15 @@ int SENSOR_DATA[PIN_COUNT] = { 0,0,0,0,0,0 };
 void setup() {
 
   for ( int index = 0 ; index < PIN_COUNT ; index++) {
-  pinMode( PINS[index] , INPUT );
+    // Settings al the pins to input config to read data from the sensor
+    pinMode( PINS[index] , INPUT );
   }
   
   USE_SERIAL.begin(115200);
-  USE_SERIAL.println();
-  USE_SERIAL.println();
-  USE_SERIAL.println();
+  USE_SERIAL.println("");
 
-  
-
+ 
+  // Starting the wifi stack and intializing the connection 
   WiFi.begin(STASSID, STAPSK);
 
   while (WiFi.status() != WL_CONNECTED) {
@@ -50,16 +49,17 @@ void setup() {
 }
 
 void loop() {
-  // wait for WiFi connection
-
-  //long CURRENT_LEVEL = random(6);
+  // We recheck the wifi connectiuon everytime 
+  
+  // Reading the inputs everytime in 3 seconds so as to check the levels
   int index = 0;
-  for (; index < PIN_COUNT; index++) {
+  for (; index < PIN_COUNT-1; index++) {
     SENSOR_DATA[index] = digitalRead( PINS[index] );
     if ( SENSOR_DATA[index] == 0 ) {
       break;
     }
   }
+  
 
   int CURRENT_LEVEL = index;
   
@@ -81,7 +81,7 @@ void loop() {
 
     char buff[10000];
     sprintf(buff,
-    "Device-Id:%s,Sensor-Type:%d,Current-Level:%d,Min-Level:%d,Max-Level:%d,Confidence:%d"
+    "deviceID:%s,sensorType:%d,currentLevel:%d,minLevel:%d,maxLevel:%d,confidence:%d"
       , DEVICE_ID , SENSOR_TYPE , CURRENT_LEVEL , MIN_LEVEL , MAX_LEVEL , CONFIDENCE  );
     
     int httpCode = http.POST(buff);
@@ -105,5 +105,5 @@ void loop() {
     http.end();
   }
 
-  delay(3000);
+  delay(2000);
 }
