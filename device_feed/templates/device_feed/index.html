@@ -1,78 +1,173 @@
-{% extends "./base.html" %}
 {% load static %}
 
-{% block display %}
 
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content="5">
 
-<div id="home" class="parallax first-section" data-stellar-background-ratio="0.4"
-    style="background-image:url('http://127.0.0.1:8000/static/device_feed/images/slider-bg.png');">
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="text-contant">
-                    <h2>
-                        <span class="center"><span class="icon"><img
-                                    src="{% static 'device_feed/images/icon-logo.png'%}" alt="#" /></span></span>
-                        <a href="" class="typewrite" data-period="2000"
-                            data-type='[ "Welcome to LifeSense", "We Care Your Health", "We are Expert!" ]'>
-                            <span class="wrap"></span>
-                        </a>
-                    </h2>
+    <title>LifeSense</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'device_feed/css/bootstrap.min.css' %}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'device_feed/style.css' %}">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="{% static 'device_feed/css/colors.css' %}">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="{% static 'device_feed/css/versions.css' %}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'device_feed/css/responsive.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'device_feed/css/custom.css' %}">
+    <!-- Modernizer for Portfolio -->
+    <script src="{% static 'device_feed/js/modernizer.js' %}"></script>
+    <!-- [if lt IE 9] -->
+</head>
+
+<body class="clinic_version">
+
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <br><img src="{% static 'device_feed/images/logo.png' %}" alt="image"><br><br>
+
+                {% if currentLevel == '2' %}
+                <div class="alert alert-warning" role="alert">
+                    <h2 class="alert-heading">Attention!</h2>
+                    <strong>Device ID - {{ deviceID }} is at low fluid level. Please take appropriate
+                        actions.</strong>
                 </div>
+                {% endif %}
+
+                {% if currentLevel == '1' %}
+                <div class="alert alert-danger" role="alert">
+                    <h2 class="alert-heading">Attention!</h2>
+                    <strong>Device ID - {{ deviceID }} is at critical fluid level. Please take appropriate
+                        actions.</strong>
+                </div>
+                {% endif %}
+
+                {% if currentLevel == '0' %}
+                <div class="alert alert-danger" role="alert">
+                    <h2 class="alert-heading">Attention!</h2>
+                    <strong>In device ID - {{ deviceID }}, the fluid level is 0 now. Please take appropriate
+                        actions.</strong>
+                </div>
+                {% endif %}
+
             </div>
         </div>
-        <!-- end row -->
+    </header>
+
+
+    <div id="home" class="first-section" data-stellar-background-ratio="0.4"
+        style="background-image:url('http://127.0.0.1:8000/static/device_feed/images/slider-bg.png');">
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="text-contant">
+                        <h2>
+                            <span class="center"><span class="icon"><img
+                                        src="{% static 'device_feed/images/icon-logo.png'%}" alt="#" /></span></span>
+                            <a href="" class="typewrite" data-period="2000"
+                                data-type='[ "Welcome to LifeSense", "We Care Your Health", "We are Expert!" ]'>
+                                <span class="wrap"></span>
+                            </a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
     </div>
-    <!-- end container -->
-</div>
-<!-- end section -->
+    <!-- end section -->
 
-<div id="time-table" class="time-table-section">
-    <div class="container">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="service-time one" style="background:#2895f1;">
-                    <span class="info-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                    <h3>Patient Details</h3>
-                    <p>Dignissimos ducimus qui blanditii sentium volta tum deleniti atque cori as quos dolores et quas
-                        mole.</p>
+
+    <div id="time-table" class="time-table-section">
+        <div class="container">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="service-time one" style="background:#2895f1;">
+                        <span class="info-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                        <h3>Patient Details</h3>
+                        <div class="time-table-section">
+                            <ul>
+                                <li><span class="left">Patient Name</span><span class="right">John Doe</span id="memberNumber">
+                                </li>
+                                <li><span class="left">Room Number</span><span class="right">108</span>
+                                </li>
+                                <li><span class="left">Bed Number</span><span class="right">27</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="service-time middle" style="background:#0071d1;">
+                        <span class="info-icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
+
+                        <h3>Device ID : {{ deviceID }}</h3>
+
+                        <p style="font-size: larger;"><strong>Current Fluid Level <br><span style="font-size: xxx-large;">{{ currentLevel }}</span></strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="service-time three" style="background:#0060b1;">
+                        <span class="info-icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
+                        <h3>Other Details</h3>
+                        <div class="time-table-section">
+                            <span style="font-size: larger;" class="left"><strong>Max Level - {{ maxLevel }}<strong></span>
+                            <span style="font-size: larger;" class="right"><strong>Min Level - {{ minLevel }}</strong></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="service-time middle" style="background:#0071d1;">
-                    <span class="info-icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
+    </div>
 
-                    <h3>Device: {{ deviceID }}</h3>
-                    <div class="time-table-section">
-                        <ul>
-                            <li><span class="left">Current Level</span><span class="right">{{ currentLevel }}</span id="memberNumber">
-                            </li>
-                            <li><span class="left">Max Level</span><span class="right">{{ maxLevel }}</span>
-                            </li>
-                            <li><span class="left">Min Level</span><span class="right">{{ minLevel }}</span>
-                            </li>
+    <div class=" copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="footer-text">
+                        <p>Site Developed By Nishant Ranjan For SIH 2020</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="social">
+                        <ul class="social-links">
+                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
                         </ul>
                     </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="service-time three" style="background:#0060b1;">
-                    <span class="info-icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
-                    <h3>Other Details</h3>
-                    <p>Dignissimos ducimus qui blanditii sentium volta tum deleniti atque cori as quos dolores et quas
-                        mole.</p>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- end copyrights -->
+    <a href="{% static 'device_feed/#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
-{% endblock %}
+  <!-- all js files -->
+  <script src="{% static 'device_feed/js/all.js' %}">
+</script>
+        <!-- all plugins -->
+        <script src="{% static 'device_feed/js/custom.js' %}"></script>
 
+</body>
+
+</html>

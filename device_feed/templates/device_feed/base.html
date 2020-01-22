@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="refresh" content="5">
 
-    <title>Life Care - Responsive HTML5 Multi Page Template</title>
+    <title>LifeSense</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'device_feed/css/bootstrap.min.css' %}">
@@ -29,35 +29,16 @@
 </head>
 
 <body class="clinic_version">
-    
+
     <header>
         <div class="header-top">
             <div class="container">
-                <br><img src="{% static 'device_feed/images/logo.png' %}" alt="image">
-            </div>
-        </div>
-
-        <div class="header-bottom">
-            <div class="container">
-                <nav class="main-menu">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i class="fa fa-bars"
-                                aria-hidden="true"></i></button>
-                    </div>
-
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a class="active" href="#">Home</a></li>
-                            <li><a data-scroll href="#">About Us</a></li>
-                            <li><a data-scroll href="#">Usage</a></li>
-                            <li><a data-scroll href="#">FAQ</a></li>
-                            <li><a data-scroll href="#">Contact</a></li>
-                            <li><a data-scroll href="#">Members Login</a></li>
-                        </ul>
-                    </div>
-                </nav>
-
+                <br><img src="{% static 'device_feed/images/logo.png' %}" alt="image"><br><br>
+                
+                <div class="alert alert-success">
+                    <strong>Success!</strong> This alert box could indicate a successful or positive action.
+                  </div>
+                  
             </div>
         </div>
     </header>
@@ -97,28 +78,6 @@
         <!-- all plugins -->
         <script src="{% static 'device_feed/js/custom.js' %}"></script>
 
-
-        <script>
-            function auto_load() {
-                req = $.ajax({
-                    location.reload(true);
-                });
-
-                req.done(function (data) {
-
-                    // $('#memberSection' + member_id).fadeOut(1000).fadeIn(1000);
-                    $('#memberNumber').innerHTML = 'data.currentLevel';
-
-                });
-
-            }
-            $(document).ready(function () {
-                auto_load()
-
-
-            });
-            setInterval(auto_load, 1000);
-        </script>
 </body>
 
 </html>
