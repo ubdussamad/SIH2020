@@ -11,7 +11,7 @@
 #define MAX_LEVEL 5
 #define CONFIDENCE 1
 #define USE_SERIAL Serial
-#define SERVER_IP "192.168.43.43:8000"
+#define SERVER_IP "192.168.43.43:8001"
 #define UA "LifeSense-V0.1"
 
 #define PIN_COUNT 6
@@ -81,7 +81,7 @@ void loop() {
 
     char buff[10000];
     sprintf(buff,
-    "{\"Device-Id\":\"%s\" , \"Sensor-Type: %d\" , \"Current-Level\": \"%d\" , \"Min-Level\" : \"%d\" , \"Max-Level\" : \"%d\" , \"Confidence\" : \"%d\" }"
+    "Device-Id:%s,Sensor-Type:%d,Current-Level:%d,Min-Level:%d,Max-Level:%d,Confidence:%d"
       , DEVICE_ID , SENSOR_TYPE , CURRENT_LEVEL , MIN_LEVEL , MAX_LEVEL , CONFIDENCE  );
     
     int httpCode = http.POST(buff);
